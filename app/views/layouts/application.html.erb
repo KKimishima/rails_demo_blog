@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RailsDemoBlog</title>
+  <title><%= ApplicationHelper::APP_NAME %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -10,6 +10,15 @@
 </head>
 
 <body>
-<%= yield %>
+<div class="container">
+  <%= render "layouts/header" %>
+  <main role="main" class="container">
+    <div class="row">
+      <%= yield %>
+      <%= render "layouts/aside" %>
+    </div>
+  </main>
+  <%= render "layouts/footer" %>
+</div>
 </body>
 </html>
