@@ -37,6 +37,12 @@ gem 'jquery-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+group :test do
+  gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
+  gem 'database_cleaner', '~> 1.7'
+  gem 'factory_bot_rails', '~> 4.10'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # inteillj用のデバッグツール
