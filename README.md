@@ -21,4 +21,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ver0.0.1
+  - railsの設定と基本デザイン作成
