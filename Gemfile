@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.5'
 # bootstrap 手動追加
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'popper_js', '~> 1.12', '>= 1.12.9'
+gem 'tether-rails', '~> 1.4'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -64,6 +67,9 @@ group :development do
   gem "binding_of_caller"
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rubocop', '~> 0.56.0'
+  gem 'annotate', '~> 2.7', '>= 2.7.3'
+  gem 'overcommit', '~> 0.45.0'
 end
 
 
