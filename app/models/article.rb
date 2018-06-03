@@ -11,6 +11,11 @@
 #
 
 class Article < ApplicationRecord
+  # タイトルの空、同じ禁止
+  # コンテンツの空禁止
+  validates :title, uniqueness: true, presence: true
+  validates :content, presence: true
+
   # userテーブルを所有する設定
   belongs_to :user
   has_many :article_tag

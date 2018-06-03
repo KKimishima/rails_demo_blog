@@ -9,6 +9,8 @@
 #
 
 class Tag < ApplicationRecord
+  # タグ名の空、同じ禁止
+  validates :name, uniqueness: true, presence: true
   # tagテーブルが所有されていること
   has_many :article_tag
   # 中間テーブルの設定

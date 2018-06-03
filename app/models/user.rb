@@ -10,6 +10,10 @@
 #
 
 class User < ApplicationRecord
+  # ユーザ名の空だめ、重複だめ
+  validates :name, uniqueness: true, presence: true
+
   # userが複数に所有されることを示し、削除したときまとめて消す
   has_many :article, dependent: :destroy
+
 end
