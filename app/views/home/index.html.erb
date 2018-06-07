@@ -8,7 +8,7 @@
     </h3>
     <% @results.each do |top_result| %>
       <h2 class="blog-post-title">
-        <a href="/show/4" class="text-dark">
+        <a href="<%= url_for controller: 'posts', action: 'show', id: top_result.id %>" class="text-dark">
           <%= top_result.title %>
         </a>
       </h2>
