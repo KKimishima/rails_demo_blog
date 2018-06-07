@@ -20,4 +20,13 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :article_tag
   has_many :tag, through: :article_tag
+
+  # スコープを指定
+  scope :post_list, ->(page_limit, page_offset) {includes(:user, :tag).order(id: :desc).limit(page_limit).offset(page_offset)}
+
+  # pageのでも
+  def self.page_navigation(page_limit: 5, page_id: 1)
+    page = (page_id - 1) * page_limit
+    self.post_list(page_limit, page)
+  end
 end

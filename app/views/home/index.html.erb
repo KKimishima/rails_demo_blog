@@ -6,7 +6,7 @@
     <h3 class="pb-3 mb-4 font-italic border-bottom">
       投稿一覧
     </h3>
-    <% @top_results.each do |top_result| %>
+    <% @results.each do |top_result| %>
       <h2 class="blog-post-title">
         <a href="/show/4" class="text-dark">
           <%= top_result.title %>
@@ -28,8 +28,8 @@
     <% end %>
 
     <nav class="blog-pagination">
-      <a class="btn btn-outline-primary" href="/page/1">前へ </a>
-      <a class="btn btn-outline-primary" href="/page/2">次へ</a>
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'page', action: 'show', id: @page_number - 1 %>">前へ </a>
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'page', action: 'show', id: @page_number + 1 %>">次へ</a>
     </nav>
 
   </div>
