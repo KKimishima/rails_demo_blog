@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :pages, only: [:show]
   resources :articles, only: [:show, :new, :create]
+    # resources :sessinons, only: [:new]
 end
