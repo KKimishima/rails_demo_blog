@@ -25,6 +25,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.12', '>= 1.12.9'
 gem 'tether-rails', '~> 1.4'
+gem 'redcarpet', '~> 3.4'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

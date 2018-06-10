@@ -19,7 +19,9 @@
         </a>
       <% end %>
     </p>
-    <%= @post.content %>
+
+    <%= md_to_html @post.content %>
+
     <nav class="blog-pagination">
       <a class="btn btn-outline-primary" href="/">戻る </a>
     </nav>

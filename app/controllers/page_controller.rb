@@ -1,5 +1,5 @@
 class PageController < ApplicationController
-  before_action :check_page
+  before_action :check_page, only: [:show]
 
   def show
     @page_number = params[:id].to_i

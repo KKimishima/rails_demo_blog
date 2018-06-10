@@ -23,7 +23,7 @@
         <% end %>
       </p>
 
-      <p><%= truncate(top_result.content, length: 30) %></p>
+      <p><%= md_to_html truncate(top_result.content, length: 50) %></p>
 
     <% end %>
 
