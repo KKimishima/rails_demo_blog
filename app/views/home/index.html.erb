@@ -10,8 +10,7 @@
     <%= render 'layouts/contents_list' %>
 
     <nav class="blog-pagination">
-      <a class="btn btn-outline-primary" href="<%= url_for controller: 'page', action: 'show', id: @page_number - 1 %>">前へ </a>
-      <a class="btn btn-outline-primary" href="<%= url_for controller: 'page', action: 'show', id: @page_number + 1 %>">次へ</a>
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'pages', action: 'show', id: @page_number + 1 %>">次へ</a>
     </nav>
 
   </div>

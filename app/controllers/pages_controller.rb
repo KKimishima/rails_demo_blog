@@ -1,4 +1,4 @@
-class PageController < ApplicationController
+class PagesController < ApplicationController
   before_action :check_page, only: [:show]
 
   def show
@@ -9,7 +9,7 @@ class PageController < ApplicationController
   private
 
   def check_page
-    if params[:id].to_i < 1
+    if params[:id].to_i <= 1
       redirect_to :root
     end
   end
