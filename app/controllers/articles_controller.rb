@@ -1,19 +1,31 @@
 class ArticlesController < ApplicationController
-  # before_action :set_article
+  before_action :set_article, only: [:show]
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def new
     @article = Article.new
   end
 
+  def create
+    @article = Article.new(article_params)
+    respond_to do |format|
+      if @article.save
+        format.html {redirect_to @article, notice: 'Blog was successfully created.'}
+      else
+        format.html {render :new}
+      end
+    end
+  end
+
   private
 
-  def check_page
-    if params[:id].to_i < 0
-      redirect_to :root
-    end
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  def article_params
+    params.require(:article).permit(:title, :content, :user_id)
   end
 end
