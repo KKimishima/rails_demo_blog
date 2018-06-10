@@ -7,20 +7,20 @@
     </h3>
     <h2 class="blog-post-title">
       <a href="/" class="text-dark">
-        <%= @post.title %></a>
+        <%= @article.title %></a>
     </h2>
     <p class="blog-post-meta">
-      作成日時:<%= time_ago_in_words @post.created_at %>
-      更新日時:<%= time_ago_in_words @post.updated_at %>
-      作成者:<%= @post.user.name %><br>
-      <% @post.tag.each do |t| %>
+      作成日時:<%= time_ago_in_words @article.created_at %>
+      更新日時:<%= time_ago_in_words @article.updated_at %>
+      作成者:<%= @article.user.name %><br>
+      <% @article.tag.each do |t| %>
         <a href="#" class="badge badge-secondary">
           <%= t.name %>
         </a>
       <% end %>
     </p>
 
-    <%= md_to_html @post.content %>
+    <%= md_to_html @article.content %>
 
     <nav class="blog-pagination">
       <a class="btn btn-outline-primary" href="/">戻る </a>
