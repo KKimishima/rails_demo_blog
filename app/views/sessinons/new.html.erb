@@ -3,13 +3,13 @@
 
   <div class="blog-post">
     <h3 class="pb-3 mb-4 font-italic border-bottom">
-      記事投稿
+      ログイン
     </h3>
 
-    <%= render 'articles/form', article: @article %>
+    <%= render 'sessinons/form' %>
 
     <nav class="blog-pagination">
-      <a class="btn btn-outline-primary" href="<%= url_for controller: 'home', action: 'index' %>/">戻る </a>
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'home', action: 'index' %>">戻る </a>
     </nav>
   </div>
 </div>

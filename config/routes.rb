@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :pages, only: [:show]
   resources :articles, only: [:show, :new, :create]
-    # resources :sessinons, only: [:new]
+  get 'login', to: 'sessinons#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end

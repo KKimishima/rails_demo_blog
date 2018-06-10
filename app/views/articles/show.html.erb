@@ -23,7 +23,7 @@
     <%= md_to_html @article.content %>
 
     <nav class="blog-pagination">
-      <a class="btn btn-outline-primary" href="/">戻る </a>
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'home', action: 'index' %>">戻る </a>
     </nav>
   </div>
 </div>
