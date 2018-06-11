@@ -10,10 +10,14 @@
 #
 
 class User < ApplicationRecord
+  # パスワーの設定
+  has_secure_password
+  validates :name, presence: true, uniqueness: true
   # ユーザ名の空だめ、重複だめ
   validates :name, uniqueness: true, presence: true
 
   # userが複数に所有されることを示し、削除したときまとめて消す
   has_many :article, dependent: :destroy
+
 
 end
