@@ -6,7 +6,7 @@
       ログイン
     </h3>
 
-    <%= render 'sessinons/form' %>
+    <%= render 'sessions/form', user: @user %>
 
     <nav class="blog-pagination">
       <a class="btn btn-outline-primary" href="<%= url_for controller: 'home', action: 'index' %>">戻る </a>
