@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :require_login, only: [:create, :new]
   before_action :set_article, only: [:show]
 
   def show
@@ -20,6 +21,10 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+  def require_login
+    redirect_to root_url unless login_in?
+  end
 
   def set_article
     @article = Article.find(params[:id])

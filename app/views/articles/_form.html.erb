@@ -21,10 +21,7 @@
     <%= form.text_area :content, class: 'form-control', placeholder: "投稿内容", rows: 10 %>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :user_id, class: 'form-cotntrol font-italic' %>
-    <%= form.text_field :user_id, class: 'form-control' %>
-  </div>
+  <%= form.hidden_field :user_id, :value => session[:user_id] %>
 
   <div class="actions ">
     <%= form.submit :class => "btn btn-outline-primary" %>
