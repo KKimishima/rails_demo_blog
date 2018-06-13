@@ -22,6 +22,11 @@
 
     <%= md_to_html @article.content %>
 
+    <% if login_in? %>
+      <div class="col-12 clearfix">
+        <%= link_to '編集', edit_article_path, method: :get, class: "btn btn-warning float-right" %>
+      </div>
+    <% end %>
     <nav class="blog-pagination">
       <a class="btn btn-outline-primary" href="<%= url_for controller: 'home', action: 'index' %>">戻る </a>
     </nav>

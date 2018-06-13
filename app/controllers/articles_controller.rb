@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :require_login, only: [:create, :new]
-  before_action :set_article, only: [:show]
+  before_action :require_login, only: [:create, :new, :destroy, :edit]
+  before_action :set_article, only: [:show, :destroy, :edit]
 
   def show
   end
@@ -9,11 +9,21 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def edit
+  end
+
+  def destroy
+    @article.destroy
+    respond_to do |format|
+      format.html {redirect_to :root, notice: 'Blog was successfully created.'}
+    end
+  end
+
   def create
     @article = Article.new(article_params)
     respond_to do |format|
       if @article.save
-        format.html {redirect_to @article, notice: 'Blog was successfully created.'}
+        format.html {redirect_to :root, notice: 'Blog was successfully created.'}
       else
         format.html {render :new}
       end
