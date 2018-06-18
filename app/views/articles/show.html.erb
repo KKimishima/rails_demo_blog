@@ -1,0 +1,34 @@
+<div class="col-md-8 blog-main">
+
+
+  <div class="blog-post">
+    <h3 class="pb-3 mb-4 font-italic border-bottom">
+      記事
+    </h3>
+    <h2 class="blog-post-title">
+      <a href="/" class="text-dark">
+        <%= @article.title %></a>
+    </h2>
+    <p class="blog-post-meta">
+      作成日時:<%= time_ago_in_words @article.created_at %>
+      更新日時:<%= time_ago_in_words @article.updated_at %>
+      作成者:<%= @article.user.name %><br>
+      <% @article.tag.each do |t| %>
+        <a href="#" class="badge badge-secondary">
+          <%= t.name %>
+        </a>
+      <% end %>
+    </p>
+
+    <%= md_to_html @article.content %>
+
+    <% if login_in? %>
+      <div class="col-12 clearfix">
+        <%= link_to '編集', edit_article_path, method: :get, class: "btn btn-warning float-right" %>
+      </div>
+    <% end %>
+    <nav class="blog-pagination">
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'home', action: 'index' %>">戻る </a>
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<!-- form card login -->
+<div class="card rounded-0">
+  <div class="card-header">
+    <h3 class="mb-0">投稿、編集へログイン</h3>
+
+  </div>
+
+  <div class="card-body">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+
+    <%= form_for(:session, url: login_path) do |form| %>
+      <div class="field form-group">
+        <%= form.label :email %>
+        <%= form.email_field :email, class: "form-control form-control-lg rounded-0" %>
+      </div>
+      <div class="field form-group">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: "form-control form-control-lg rounded-0" %>
+      </div>
+      <div class="actions">
+        <%= form.submit "Login in" %>
+      </div>
+    <% end %>
+  </div>
+  <!--/card-block-->
+</div>
+<!-- /form card login -->

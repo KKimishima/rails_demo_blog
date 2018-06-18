@@ -1,0 +1,20 @@
+<% @results.each do |top_result| %>
+  <h2 class="blog-post-title">
+    <a href="<%= url_for controller: 'articles', action: 'show', id: top_result.id %>" class="text-dark">
+      <%= top_result.title %>
+    </a>
+  </h2>
+  <p class="blog-post-meta">
+    作成日時:<%= time_ago_in_words top_result.created_at %>
+    更新日時:<%= time_ago_in_words top_result.updated_at %>
+    作成者:<%= top_result.user.name %><br>
+    <% top_result.tag.each do |t| %>
+      <a href="#" class="badge badge-secondary">
+        <%= t.name %>
+      </a>
+    <% end %>
+  </p>
+
+  <p><%= md_to_html truncate(top_result.content, length: 50) %></p>
+
+<% end %>

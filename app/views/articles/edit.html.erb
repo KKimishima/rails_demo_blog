@@ -1,0 +1,16 @@
+<div class="col-md-8 blog-main">
+
+
+  <div class="blog-post">
+    <h3 class="pb-3 mb-4 font-italic border-bottom">
+      記事編集
+    </h3>
+
+    <%= render 'articles/form', article: @article %>
+
+    <nav class="blog-pagination">
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'home', action: 'index' %>">戻る </a>
+      <%= link_to '削除', article_path, method: :delete, class: "btn btn-outline-danger", data: {confirm: '本当に記事を消しますか?'} %>
+    </nav>
+  </div>
+</div>

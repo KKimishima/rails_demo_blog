@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_03_063106) do
+ActiveRecord::Schema.define(version: 2018_06_11_130902) do
 
   create_table "article_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "article_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_06_03_063106) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.index ["name"], name: "index_users_on_name"
   end
 
