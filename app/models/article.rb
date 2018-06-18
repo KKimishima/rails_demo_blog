@@ -20,7 +20,7 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :article_tag, dependent: :destroy
   has_many :tag, through: :article_tag
-
+  accepts_nested_attributes_for :article_tag, allow_destroy: true
   # スコープを指定
   scope :post_list, ->(page_limit, page_offset) {includes(:user, :tag).order(id: :desc).limit(page_limit).offset(page_offset)}
 

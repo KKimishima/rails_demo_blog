@@ -20,6 +20,13 @@
     <%= form.label :content, class: 'form-cotntrol font-italic' %>
     <%= form.text_area :content, class: 'form-control', placeholder: "投稿内容", rows: 10 %>
   </div>
+  <div class="field form-group">
+    <%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b| %>
+      <div class="badge badge-secondary">
+        <%= b.label {b.check_box + b.text} %>
+      </div>
+    <% end %>
+  </div>
 
   <%= form.hidden_field :user_id, :value => session[:user_id] %>
 

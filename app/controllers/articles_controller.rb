@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :require_login, only: [:create, :new, :destroy, :edit]
-  before_action :set_article, only: [:show, :destroy, :edit]
+  before_action :set_article, only: [:show, :destroy, :edit, :update]
 
   def show
   end
@@ -10,12 +10,21 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+
   end
 
   def destroy
     @article.destroy
     respond_to do |format|
       format.html {redirect_to :root, notice: 'Blog was successfully created.'}
+    end
+  end
+
+  def update
+    if @article.update(article_params)
+      redirect_to :root
+    else
+      format.html {render :edit}
     end
   end
 
@@ -41,6 +50,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :content, :user_id)
+    params.require(:article).permit(:title, :content, :user_id, {:tag_ids => []})
   end
 end
