@@ -10,6 +10,7 @@
     <% if login_in? %>
       <a class="p-2 text-muted" href="<%= url_for controller: 'articles', action: 'new' %>">投稿</a>
       <%= link_to 'ログアウト', logout_path, method: :delete, class: "p-2 text-muted" %>
+      <%= link_to 'タグ管理', tags_url, class: "p-2 text-muted" %>
       <%= login_user_is %>
     <% else %>
       <a class="p-2 text-muted" href="<%= url_for controller: 'sessions', action: 'new' %>">ログイン</a>

@@ -9,7 +9,7 @@
     更新日時:<%= time_ago_in_words top_result.updated_at %>
     作成者:<%= top_result.user.name %><br>
     <% top_result.tag.each do |t| %>
-      <a href="#" class="badge badge-secondary">
+      <a href="<%= url_for controller: 'tags', action: 'show', id: t.id %>" class="badge badge-secondary">
         <%= t.name %>
       </a>
     <% end %>
