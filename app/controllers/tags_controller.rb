@@ -10,7 +10,13 @@ class TagsController < ApplicationController
   end
 
   def show
-    @results = @tag.article
+    if params[:page].nil?
+      @results = Tag.page_navigation(id: params[:id])
+    else
+      @page = params[:page].to_i
+      @results = Tag.page_navigation(id: params[:id], page_number: @page)
+    end
+
   end
 
   def new
@@ -59,4 +65,5 @@ class TagsController < ApplicationController
   def tag_params
     params.require(:tag).permit(:name)
   end
+
 end
