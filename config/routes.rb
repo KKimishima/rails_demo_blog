@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :pages, only: [:show]
   resources :articles
   resources :tags
+  resources :users, only: [:edit, :update, :show]
   get 'login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
