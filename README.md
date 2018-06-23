@@ -24,4 +24,6 @@ Things you may want to cover:
 * ver0.0.1
   - railsの設定と基本デザイン作成
 * ver0.0.5
-  - ブログの基本機能実装  
+  - ブログの基本機能実装
+* ver0.1.0
+  - ブログの暫定完成 
