@@ -14,7 +14,7 @@
       更新日時:<%= time_ago_in_words @article.updated_at %>
       作成者:<%= @article.user.name %><br>
       <% @article.tag.each do |t| %>
-        <a href="#" class="badge badge-secondary">
+        <a href="<%= url_for controller: 'tags', action: 'show', id: t.id %>" class="badge badge-secondary">
           <%= t.name %>
         </a>
       <% end %>

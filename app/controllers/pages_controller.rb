@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def show
     @page_number = params[:id].to_i
-    @results = Article.page_navigation(page_id: @page_number)
+    @results = Article.page_navigation(page_number: @page_number)
   end
 
   private

@@ -1,0 +1,35 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :name, class: 'form-cotntrol font-italic' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :email, class: 'form-cotntrol font-italic' %>
+    <%= form.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :old_password, "現在のパスワード", class: 'form-cotntrol font-italic' %>
+    <%= form.password_field :old_password, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :password, "新しいパスワード", class: 'form-cotntrol font-italic' %>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :password_confirmation, "新しいパスワード再入力", class: 'form-cotntrol font-italic' %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+
+
+  <div class="actions ">
+    <%= form.submit :class => "btn btn-outline-primary" %>
+  </div>
+<% end %>

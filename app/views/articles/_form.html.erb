@@ -28,7 +28,7 @@
     <% end %>
   </div>
 
-  <%= form.hidden_field :user_id, :value => session[:user_id] %>
+  <%= form.hidden_field :user_id, :value => session_id_is? %>
 
   <div class="actions ">
     <%= form.submit :class => "btn btn-outline-primary" %>
