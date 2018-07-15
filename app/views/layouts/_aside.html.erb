@@ -2,8 +2,13 @@
   <div class="p-3">
     <h4 class="font-italic">アーカイブ</h4>
     <ol class="list-unstyled mb-0">
-      <li><a href="#">2018年5月</a></li>
-      <li><a href="">2018年6月</a></li>
+      <% Article.archives_count.each do |key, value| %>
+        <li>
+          <a href="<%= url_for controller: 'archives', action: "show", id: key %>">
+            <%= value %>
+          </a>
+        </li>
+      <% end %>
     </ol>
   </div>
 

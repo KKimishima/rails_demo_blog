@@ -29,4 +29,18 @@ class Article < ApplicationRecord
     page = (page_number - 1) * page_limit
     self.post_list(page_limit, page)
   end
+
+  def self.archives_count
+    results = Article.order("year_created_at", "month_created_at")
+                .group("YEAR(created_at)")
+                .group("MONTH(created_at)")
+                .count(:created_at)
+    archives = {}
+    results.each do |reslut|
+      key = reslut[0][0].to_s + "-" + reslut[0][1].to_s + "-" + "1"
+      item = reslut[0][0].to_s + "年" + reslut[0][1].to_s + "月" + "(" + reslut[1].to_s + ")"
+      archives.store(key, item)
+    end
+    archives
+  end
 end
