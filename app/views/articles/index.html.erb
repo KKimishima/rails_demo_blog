@@ -9,17 +9,17 @@
 
     <%= render 'layouts/contents_list' %>
 
-    <nav class="blog-pagination">
-      <% if @page.nil? || params[:page].to_i <= 1 %>
-        <a class="btn btn-outline-primary" href="<%= url_for controller: 'articles', action: 'index', page: 2 %>">次へ</a>
-      <% else %>
-        <a class="btn btn-outline-primary" href="<%= url_for controller: 'articles', action: 'index', page: @page - 1 %>">前へ</a>
-        <a class="btn btn-outline-primary" href="<%= url_for controller: 'articles', action: 'index', page: @page + 1 %>">次へ</a>
-      <% end %>
-    </nav>
-
   </div>
 
+
+  <nav class="blog-pagination">
+    <% if @page.nil? || params[:page].to_i <= 1 %>
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'articles', action: 'index', page: 2 %>">次へ</a>
+    <% else %>
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'articles', action: 'index', page: @page - 1 %>">前へ</a>
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'articles', action: 'index', page: @page + 1 %>">次へ</a>
+    <% end %>
+  </nav>
 
 </div><!-- /.blog-main-->
 

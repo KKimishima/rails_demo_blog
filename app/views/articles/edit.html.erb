@@ -9,7 +9,7 @@
     <%= render 'articles/form', article: @article %>
 
     <nav class="blog-pagination">
-      <a class="btn btn-outline-primary" href="<%= url_for controller: 'home', action: 'index' %>">戻る </a>
+      <a class="btn btn-outline-primary" href="<%= url_for controller: 'articles', action: 'index' %>">戻る </a>
       <%= link_to '削除', article_path, method: :delete, class: "btn btn-outline-danger", data: {confirm: '本当に記事を消しますか?'} %>
     </nav>
   </div>
