@@ -1,5 +1,13 @@
 module ApplicationHelper
-  APP_NAME = 'Rails Demo Blog Kimishima'
+  require 'redcarpet'
+  require 'rouge'
+  require 'rouge/plugins/redcarpet'
+
+  APP_NAME = 'KKimishimaの情報発信基地'
+
+  class BlogRender < Redcarpet::Render::HTML
+    include Rouge::Plugins::Redcarpet
+  end
 
   def md_to_html(text)
     options = {
@@ -14,7 +22,7 @@ module ApplicationHelper
       fenced_code_blocks: true,
     }
 
-    renderer = Redcarpet::Render::HTML.new(options)
+    renderer = BlogRender.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
 
     markdown.render(text).html_safe
