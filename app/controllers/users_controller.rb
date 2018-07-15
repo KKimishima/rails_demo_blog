@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :set_users, only: [:edit, :update, :show]
 
   def show
-
   end
 
   def edit

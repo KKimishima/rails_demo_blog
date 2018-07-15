@@ -5,7 +5,7 @@
     </div>
   </header>
   <div class="nav-scroller py-1 mb-2">
-    <a class="p-2 text-muted" href="<%= url_for controller: 'home', action: 'index' %>">Top</a>
+    <a class="p-2 text-muted" href="<%= url_for controller: 'articles', action: 'index' %>">Top</a>
     <a class="p-2 text-muted" href="/">このブロクについて</a>
     <% if login_in? %>
       <a class="p-2 text-muted" href="<%= url_for controller: 'articles', action: 'new' %>">投稿</a>

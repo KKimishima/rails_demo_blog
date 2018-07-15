@@ -16,7 +16,6 @@ class TagsController < ApplicationController
       @page = params[:page].to_i
       @results = Tag.page_navigation(id: params[:id], page_number: @page)
     end
-
   end
 
   def new

@@ -2,6 +2,15 @@ class ArticlesController < ApplicationController
   before_action :require_login, only: [:create, :new, :destroy, :edit]
   before_action :set_article, only: [:show, :destroy, :edit, :update]
 
+  def index
+    if params[:page].nil?
+      @results = Article.page_navigation
+    else
+      @page = params[:page].to_i
+      @results = Article.page_navigation(page_number: @page)
+    end
+  end
+
   def show
   end
 

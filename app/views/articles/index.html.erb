@@ -1,0 +1,25 @@
+<div class="col-md-8 blog-main">
+
+
+  <div class="blog-post">
+
+    <h3 class="pb-3 mb-4 font-italic border-bottom">
+      投稿一覧
+    </h3>
+
+    <%= render 'layouts/contents_list' %>
+
+    <nav class="blog-pagination">
+      <% if @page.nil? || params[:page].to_i <= 1 %>
+        <a class="btn btn-outline-primary" href="<%= url_for controller: 'articles', action: 'index', page: 2 %>">次へ</a>
+      <% else %>
+        <a class="btn btn-outline-primary" href="<%= url_for controller: 'articles', action: 'index', page: @page - 1 %>">前へ</a>
+        <a class="btn btn-outline-primary" href="<%= url_for controller: 'articles', action: 'index', page: @page + 1 %>">次へ</a>
+      <% end %>
+    </nav>
+
+  </div>
+
+
+</div><!-- /.blog-main-->
+
