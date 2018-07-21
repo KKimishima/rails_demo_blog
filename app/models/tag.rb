@@ -22,4 +22,17 @@ class Tag < ApplicationRecord
     tags = self.includes(:article, :article_tag).find(id)
     tags.article.order(id: :desc).limit(page_limit).offset(page_offset)
   end
+
+  def self.count_hash
+    results = ActiveRecord::Base.connection.select_all(
+      "SELECT COUNT(*) AS count_all,`tags`.`id` AS tags_id,`tags`.`name` AS tags_name FROM `tags` INNER JOIN `article_tags` ON `tags`.id = `article_tags`.tag_id  GROUP BY `tags`.`name`,`tags`.`id` ORDER BY count_all DESC, tags_name DESC"
+    ).to_hash
+    count_hash = {}
+    results.each do |result|
+      key = result["tags_id"]
+      item = "#{result["tags_name"]}(#{result["count_all"].to_s})"
+      count_hash.store(key, item)
+    end
+    count_hash
+  end
 end

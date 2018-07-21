@@ -3,7 +3,7 @@ class TagsController < ApplicationController
   before_action :set_tags, only: [:show, :destroy, :edit, :update]
 
   def index
-    @tags = Tag.all
+    @tags = Tag.count_hash
   end
 
   def edit

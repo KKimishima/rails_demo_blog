@@ -21,13 +21,34 @@ class Article < ApplicationRecord
   has_many :article_tag, dependent: :destroy
   has_many :tag, through: :article_tag
   accepts_nested_attributes_for :article_tag, allow_destroy: true
+
   # スコープを指定
-  scope :post_list, ->(page_limit, page_offset) {includes(:user, :tag).order(id: :desc).limit(page_limit).offset(page_offset)}
+  scope :post_list,
+        ->(page_limit, page_offset) {
+          includes(:user, :tag)
+            .order(id: :desc)
+            .limit(page_limit)
+            .offset(page_offset)
+        }
+
+  scope :archive_list,
+        ->(page_limit, page_offset, period) {
+          includes(:tag, :user)
+            .order(id: :desc)
+            .where(created_at: period.in_time_zone.all_month)
+            .limit(page_limit)
+            .offset(page_offset)
+        }
 
   # pageのでも
   def self.page_navigation(page_limit: 5, page_number: 1)
     page = (page_number - 1) * page_limit
     self.post_list(page_limit, page)
+  end
+
+  def self.archive_page_navigation(page_limit: 5, page_number: 1, period: "")
+    page = (page_number - 1) * page_limit
+    self.archive_list(page_limit, page, period)
   end
 
   def self.archives_count
