@@ -44,8 +44,8 @@ gem 'rails-i18n', '~> 5.1', '>= 5.1.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :test do
-  gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
-  gem 'database_cleaner', '~> 1.7'
+  # gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
+  # gem 'database_cleaner', '~> 1.7'
   gem 'factory_bot_rails', '~> 4.10'
 end
 
@@ -53,7 +53,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # inteillj用のデバッグツール
   gem 'ruby-debug-ide', '~> 0.6.1'
+  gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
+  gem 'factory_bot_rails', '~> 4.10'
+  gem 'database_cleaner', '~> 1.7'
+  gem 'faker', '~> 1.9', '>= 1.9.1'
   gem 'debase', '~> 0.2.2'
+  gem 'rails-controller-testing'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 

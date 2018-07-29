@@ -3,6 +3,7 @@
     <h3 class="pb-3 mb-4 font-italic border-bottom">
       記事タグ一覧 <br>
     </h3>
+    <a href="<%= url_for controller: 'tags', action: 'new' %>" class="btn btn-outline-primary">Tagの作成</a>
     <table class="table">
       <thead class="thead-light">
       <tr>
@@ -12,13 +13,20 @@
       </thead>
 
       <tbody>
-      <% @tags.each do |tag| %>
+      <% @tags.each do |key, item| %>
         <tr>
           <td>
-            <%= link_to tag.name, tag, class: "badge badge-secondary" %>
+            <a href="<%= url_for controller: 'tags', action: 'show', id: key %>" class="badge badge-secondary">
+              <%= item %>
+            </a>
           </td>
-          <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-          <td><%= link_to 'Destroy', tag, method: :delete, data: {confirm: '本当に削除しますか?'} %></td>
+          <td>
+            <a href="<%= url_for controller: 'tags', action: 'edit', id: key %>">
+              Edit
+            </a>
+          </td>
+          <td>
+            <%= link_to 'Destroy', "tags/#{key.to_s}", method: :delete, data: {confirm: '本当に削除しますか?'} %></td>
         </tr>
       <% end %>
       </tbody>

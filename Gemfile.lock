@@ -90,6 +90,8 @@ GEM
     factory_bot_rails (4.10.0)
       factory_bot (~> 4.10.0)
       railties (>= 3.0.0)
+    faker (1.9.1)
+      i18n (>= 0.7)
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -158,6 +160,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.0)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.2)
+      actionpack (~> 5.x, >= 5.0.1)
+      actionview (~> 5.x, >= 5.0.1)
+      activesupport (~> 5.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -264,6 +270,7 @@ DEPENDENCIES
   database_cleaner (~> 1.7)
   debase (~> 0.2.2)
   factory_bot_rails (~> 4.10)
+  faker (~> 1.9, >= 1.9.1)
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
@@ -274,6 +281,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.0)
+  rails-controller-testing
   rails-i18n (~> 5.1, >= 5.1.1)
   redcarpet (~> 3.4)
   rouge (~> 3.1, >= 3.1.1)

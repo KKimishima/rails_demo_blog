@@ -1,0 +1,27 @@
+<div class="col-md-8 blog-main">
+
+
+  <div class="blog-post">
+
+    <h3 class="pb-3 mb-4 font-italic border-bottom">
+      過去の投稿 <br>
+      <div class="badge badge-secondary"><%= @post_date %></div>
+    </h3>
+
+
+    <%= render 'layouts/contents_list' %>
+
+    <nav class="blog-pagination">
+      <% if @page.nil? || @page <= 1 %>
+        <a class="btn btn-outline-primary" href="<%= url_for controller: 'archives', action: 'show', page: 2 %>">次へ</a>
+
+      <% else %>
+        <a class="btn btn-outline-primary" href="<%= url_for controller: 'archives', action: 'show', page: @page - 1 %>">前へ</a>
+        <a class="btn btn-outline-primary" href="<%= url_for controller: 'archives', action: 'show', page: @page + 1 %>">次へ</a>
+      <% end %>
+    </nav>
+
+  </div>
+
+
+</div><!-- /.blog-main-->

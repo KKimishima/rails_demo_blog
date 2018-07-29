@@ -27,3 +27,5 @@ Things you may want to cover:
   - ブログの基本機能実装
 * ver0.1.0
   - ブログの暫定完成 
+* ver0.2.0
+  - 公開直前
