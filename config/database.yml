@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: rails_demo_blog_production
-  username: rails_demo_blog
+  database: blogdb
+  username: railsuser
   password: <%= ENV['RAILS_DEMO_BLOG_DATABASE_PASSWORD'] %>
